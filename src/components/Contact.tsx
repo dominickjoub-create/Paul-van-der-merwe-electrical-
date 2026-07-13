@@ -25,7 +25,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative scroll-mt-20 py-20 sm:py-28">
+    <section id="contact" className="relative scroll-mt-20 py-12 sm:py-20">
       <div className="shell">
         <div className="panel overflow-hidden">
           <div className="relative grid gap-10 p-8 sm:p-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">

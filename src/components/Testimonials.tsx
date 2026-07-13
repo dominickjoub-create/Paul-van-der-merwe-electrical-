@@ -43,7 +43,7 @@ export function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="relative scroll-mt-20 overflow-hidden py-20 sm:py-28">
+    <section id="reviews" className="relative scroll-mt-20 overflow-hidden py-12 sm:py-20">
       <div className="shell grid items-center gap-14 lg:grid-cols-2">
         {/* Left: heading */}
         <div>

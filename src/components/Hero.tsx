@@ -17,7 +17,7 @@ export function Hero() {
   });
 
   return (
-    <section id="top" className="relative flex min-h-[78svh] items-center overflow-hidden pt-16 sm:min-h-[100svh]">
+    <section id="top" className="relative flex min-h-[68svh] items-center overflow-hidden pt-16 sm:min-h-[100svh]">
       {/* Ambient background layers */}
       <div className="pointer-events-none absolute inset-0 grid-veil" aria-hidden />
       <div

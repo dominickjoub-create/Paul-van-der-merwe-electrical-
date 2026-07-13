@@ -3,7 +3,7 @@ import { whyChooseUs, site } from "@/lib/site";
 
 export function WhyChooseUs() {
   return (
-    <section id="why" className="relative scroll-mt-20 py-20 sm:py-28">
+    <section id="why" className="relative scroll-mt-20 py-12 sm:py-20">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-16">
           {/* Left: pitch */}

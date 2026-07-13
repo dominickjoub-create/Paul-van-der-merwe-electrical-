@@ -76,7 +76,7 @@ export function QuoteForm() {
   }
 
   return (
-    <section id="quote" className="relative scroll-mt-20 py-20 sm:py-28">
+    <section id="quote" className="relative scroll-mt-20 py-12 sm:py-20">
       {/* soft glow anchor */}
       <div
         aria-hidden

@@ -12,7 +12,7 @@ export function addServiceToQuote(id: ServiceId) {
 
 export function Services() {
   return (
-    <section id="services" className="relative scroll-mt-20 py-20 sm:py-28">
+    <section id="services" className="relative scroll-mt-20 py-12 sm:py-20">
       <div className="shell">
         <Reveal>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
