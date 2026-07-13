@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 const links = [
   { href: "#services", label: "Services" },
-  { href: "#quote", label: "Get a quote" },
+  { href: "#why", label: "Why us" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -44,9 +44,19 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a href={`tel:${site.phoneE164}`} className="btn-bolt hidden !py-2.5 !text-[0.8rem] sm:inline-flex">
+        <div className="flex items-center gap-2.5">
+          <a
+            href={`tel:${site.phoneE164}`}
+            className="btn-ghost hidden !px-4 !py-2.5 !text-[0.78rem] lg:inline-flex"
+          >
             {site.phoneDisplay}
+          </a>
+          <a href="#quote" className="btn-bolt !gap-1.5 !px-3.5 !py-2.5 !text-[0.78rem]">
+            <span className="hidden sm:inline-flex">
+              <BoltIcon />
+            </span>
+            <span className="sm:hidden">Quote</span>
+            <span className="hidden sm:inline">Get a quote</span>
           </a>
           <button
             type="button"
@@ -98,5 +108,13 @@ export function Header() {
         </nav>
       </div>
     </header>
+  );
+}
+
+function BoltIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+    </svg>
   );
 }

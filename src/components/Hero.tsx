@@ -93,20 +93,26 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.ul
-            {...rise(0.32)}
-            className="mt-10 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[0.72rem] uppercase tracking-wider text-chalk-faint"
-          >
-            <li className="flex items-center gap-2">
-              <Dot /> {site.offer.headline}
-            </li>
-            <li className="flex items-center gap-2">
-              <Dot /> {site.hours.label}
-            </li>
-            <li className="flex items-center gap-2">
-              <Dot /> {site.hours.note}
-            </li>
-          </motion.ul>
+          <motion.div {...rise(0.32)} className="mt-9 flex flex-wrap items-center gap-3">
+            {/* Standby — pulsing "on" light */}
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-ink-line bg-ink-raise/70 px-4 py-1.5 backdrop-blur">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-bolt opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-bolt" />
+              </span>
+              <span className="font-mono text-[0.68rem] uppercase tracking-[0.2em] text-chalk-dim">
+                On standby for emergencies
+              </span>
+            </span>
+
+            {/* Trading hours */}
+            <span className="inline-flex items-center gap-2.5 rounded-full border border-ink-line bg-ink-raise/70 px-4 py-1.5 backdrop-blur">
+              <ClockIcon />
+              <span className="font-mono text-[0.68rem] uppercase tracking-[0.2em] text-chalk-dim">
+                {site.hours.label}
+              </span>
+            </span>
+          </motion.div>
         </div>
       </div>
 
@@ -131,6 +137,11 @@ function BoltIcon() {
   );
 }
 
-function Dot() {
-  return <span className="inline-block h-1 w-1 rounded-full bg-bolt" aria-hidden />;
+function ClockIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden className="text-bolt">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+      <path d="M12 7.5V12l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
 }

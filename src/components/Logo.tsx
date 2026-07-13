@@ -39,10 +39,10 @@ export function LogoMark({ className = "" }: { className?: string }) {
 /** Full lock-up: mark + stacked wordmark. */
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <LogoMark className="h-9 w-9 shrink-0" />
+    <span className={`inline-flex items-center gap-2 sm:gap-2.5 ${className}`}>
+      <LogoMark className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.05rem] font-extrabold tracking-tight text-chalk">
+        <span className="whitespace-nowrap font-display text-[0.95rem] font-extrabold tracking-tight text-chalk sm:text-[1.05rem]">
           Paul van der Merwe
         </span>
         <span className="font-mono text-[0.62rem] font-medium uppercase tracking-[0.42em] text-bolt">
