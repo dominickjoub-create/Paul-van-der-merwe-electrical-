@@ -17,7 +17,7 @@ export function Hero() {
   });
 
   return (
-    <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden pt-16">
+    <section id="top" className="relative flex min-h-[78svh] items-center overflow-hidden pt-16 sm:min-h-[100svh]">
       {/* Ambient background layers */}
       <div className="pointer-events-none absolute inset-0 grid-veil" aria-hidden />
       <div
@@ -38,7 +38,7 @@ export function Hero() {
         style={{ background: "linear-gradient(to top, #0a0a0b, transparent)" }}
       />
 
-      <div className="shell relative z-10 py-20 sm:py-24">
+      <div className="shell relative z-10 py-12 sm:py-24">
         <div className="max-w-3xl">
           <motion.div {...rise(0)} className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-ink-line bg-ink-raise/70 px-4 py-1.5 backdrop-blur">
             <span className="relative flex h-2 w-2">

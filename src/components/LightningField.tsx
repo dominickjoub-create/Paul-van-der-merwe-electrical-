@@ -60,7 +60,7 @@ export default function LightningField() {
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isSmall = window.innerWidth < 640;
-    const boltCount = isSmall ? 3 : 5;
+    const boltCount = isSmall ? 2 : 4;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
@@ -120,7 +120,7 @@ export default function LightningField() {
         glow,
         baseX,
         z,
-        nextStrike: Math.random() * (reduce ? 6 : 2.5),
+        nextStrike: Math.random() * (reduce ? 8 : 4),
         life: 0,
         duration: 0,
       });
@@ -138,9 +138,9 @@ export default function LightningField() {
     sparkGeo.setAttribute("position", new THREE.BufferAttribute(sparkPos, 3));
     const sparkMat = new THREE.PointsMaterial({
       color: 0xffd84d,
-      size: 0.05,
+      size: 0.042,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.28,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
@@ -151,9 +151,9 @@ export default function LightningField() {
       const pts = buildPath(b.baseX, b.z, 1.2);
       b.core.geometry.dispose();
       b.glow.geometry.dispose();
-      b.core.geometry = makeTube(pts, 0.018);
-      b.glow.geometry = makeTube(pts, 0.09);
-      b.duration = 0.32 + Math.random() * 0.35;
+      b.core.geometry = makeTube(pts, 0.016);
+      b.glow.geometry = makeTube(pts, 0.08);
+      b.duration = 0.24 + Math.random() * 0.28;
       b.life = b.duration;
     }
 
@@ -202,16 +202,16 @@ export default function LightningField() {
         b.nextStrike -= dt;
         if (b.life <= 0 && b.nextStrike <= 0) {
           restrike(b);
-          b.nextStrike = (reduce ? 5 : 2) + Math.random() * (reduce ? 6 : 4);
+          b.nextStrike = (reduce ? 8 : 4.5) + Math.random() * (reduce ? 6 : 5);
         }
         if (b.life > 0) {
           b.life -= dt;
           const k = Math.max(b.life / b.duration, 0);
-          // Sharp attack, flickering decay.
-          const flicker = 0.6 + 0.4 * Math.sin(t * 60 + b.baseX);
-          const env = Math.pow(k, 0.5) * flicker;
-          (b.core.material as THREE.MeshBasicMaterial).opacity = Math.min(env * 1.1, 1);
-          (b.glow.material as THREE.MeshBasicMaterial).opacity = env * 0.55;
+          // Sharp attack, gentle flickering decay (kept subtle so it never fights the copy).
+          const flicker = 0.74 + 0.26 * Math.sin(t * 42 + b.baseX);
+          const env = Math.pow(k, 0.6) * flicker;
+          (b.core.material as THREE.MeshBasicMaterial).opacity = Math.min(env * 0.6, 0.66);
+          (b.glow.material as THREE.MeshBasicMaterial).opacity = env * 0.28;
         } else {
           (b.core.material as THREE.MeshBasicMaterial).opacity *= 0.85;
           (b.glow.material as THREE.MeshBasicMaterial).opacity *= 0.85;
