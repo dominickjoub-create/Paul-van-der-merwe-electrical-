@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0a0a0b;
+  --bolt: #ffc400;
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    @apply bg-ink text-chalk font-sans antialiased;
+    background-color: #0a0a0b;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #ffc400;
+    color: #0a0a0b;
+  }
+
+  :focus-visible {
+    outline: 2px solid #ffc400;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Layout container */
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Small uppercase technical label */
+  .eyebrow {
+    @apply font-mono text-[0.7rem] uppercase tracking-[0.22em] text-bolt;
+  }
+
+  /* The signature electric-yellow button */
+  .btn-bolt {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full
+           bg-bolt px-6 py-3.5 font-display text-[0.95rem] font-bold uppercase tracking-wide
+           text-ink transition-transform duration-200 will-change-transform
+           hover:-translate-y-0.5 active:translate-y-0;
+    box-shadow: 0 10px 30px -10px rgba(255, 196, 0, 0.6);
+  }
+  .btn-bolt::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.55) 50%,
+      transparent 80%
+    );
+  }
+  .btn-bolt:hover::after {
+    @apply animate-sweep;
+  }
+
+  /* Ghost / secondary button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-line
+           bg-ink-raise/60 px-6 py-3.5 font-display text-[0.95rem] font-bold uppercase
+           tracking-wide text-chalk backdrop-blur transition-colors duration-200
+           hover:border-bolt/60 hover:text-bolt;
+  }
+
+  /* Hairline divider with a subtle yellow node */
+  .rule-bolt {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-ink-line to-transparent;
+  }
+
+  /* Frosted panel used across cards + form */
+  .panel {
+    @apply rounded-xl2 border border-ink-line bg-ink-soft/80 backdrop-blur-sm;
+  }
+
+  /* Faint grid texture used behind sections */
+  .grid-veil {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+}
+
+/* Thin, on-brand scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #26262b;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a42;
+}

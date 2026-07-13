@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="glow" cx="30%" cy="18%" r="75%">
+      <stop offset="0%" stop-color="#1c1a10"/>
+      <stop offset="55%" stop-color="#0d0d0e"/>
+      <stop offset="100%" stop-color="#0a0a0b"/>
+    </radialGradient>
+    <linearGradient id="bolt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFE68A"/>
+      <stop offset="100%" stop-color="#FFC400"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g stroke="#26262b" stroke-width="1" opacity="0.5">
+    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200"/>
+    <path d="M100 0v630M300 0v630M500 0v630M700 0v630M900 0v630M1100 0v630"/>
+  </g>
+
+  <!-- decorative bolt on the right -->
+  <path d="M980 60 830 320h120l-60 250 250-360H1010l60-160Z" fill="url(#bolt)" opacity="0.14"/>
+
+  <!-- mark -->
+  <g transform="translate(96,150)">
+    <path d="M60 8c-24 0-42 18-42 41 0 14.6 7.4 25 15 32.6 4.9 4.9 7.4 8.6 8.4 13.4h37.2c1-4.8 3.5-8.5 8.4-13.4C94.6 74 102 63.6 102 49 102 26 84 8 60 8Z" fill="none" stroke="#FFC400" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M42 104h36M45 116h30M50 128h20" fill="none" stroke="#FFC400" stroke-width="7" stroke-linecap="round"/>
+    <path d="M64 24 46 62h13l-5 26 21-38H62l2-26Z" fill="#FFC400"/>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="240" y="200" font-family="'Archivo','Arial Black',sans-serif" font-size="26" letter-spacing="6" fill="#FFC400" font-weight="700">CERTIFIED &amp; COMPLIANT ELECTRICIAN</text>
+
+  <!-- wordmark -->
+  <text x="238" y="286" font-family="'Archivo','Arial Black',sans-serif" font-size="86" fill="#F5F5F2" font-weight="800" letter-spacing="-2">Paul van der Merwe</text>
+  <text x="242" y="352" font-family="'Archivo','Arial Black',sans-serif" font-size="52" fill="#FFC400" font-weight="800" letter-spacing="10">ELECTRICAL</text>
+
+  <!-- tagline -->
+  <text x="96" y="470" font-family="'Archivo',sans-serif" font-size="40" fill="#F5F5F2" font-weight="700">Quality work. Honest service.</text>
+  <text x="96" y="524" font-family="'Hanken Grotesk',Arial,sans-serif" font-size="30" fill="#A1A1A6">Powering homes &amp; businesses — residential, commercial, solar &amp; more.</text>
+
+  <!-- chip -->
+  <g transform="translate(96,552)">
+    <rect width="360" height="52" rx="26" fill="#FFC400"/>
+    <text x="30" y="34" font-family="'Archivo',sans-serif" font-size="24" fill="#0a0a0b" font-weight="800">Get a free quote on WhatsApp</text>
+  </g>
+</svg>
