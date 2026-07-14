@@ -41,7 +41,7 @@ export function Contact() {
                   Let&apos;s get your <span className="text-bolt">power sorted.</span>
                 </h2>
                 <p className="mt-4 max-w-sm text-chalk-dim">
-                  Phone, WhatsApp or email — whatever&apos;s easiest. For breakdowns after
+                  Phone, WhatsApp or email, whatever&apos;s easiest. For breakdowns after
                   hours, call and we&apos;ll do our best to help.
                 </p>
 

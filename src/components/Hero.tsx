@@ -81,7 +81,7 @@ export function Hero() {
           >
             Quality work. Honest service.{" "}
             <span className="text-chalk">Powering homes and businesses</span> across our
-            community — from a single plug point to solar backup.
+            community, from a single plug point to solar backup.
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-9 flex flex-wrap items-center gap-3.5">

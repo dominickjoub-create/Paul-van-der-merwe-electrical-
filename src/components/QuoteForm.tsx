@@ -62,7 +62,7 @@ export function QuoteForm() {
       "I'd like a quote for:",
       ...chosen.map((s) => {
         const d = details[s.id]?.trim();
-        return d ? `• ${s.title} — ${d}` : `• ${s.title}`;
+        return d ? `• ${s.title}: ${d}` : `• ${s.title}`;
       }),
       "",
       `Name: ${name.trim()}`,
@@ -71,7 +71,7 @@ export function QuoteForm() {
     ];
     if (notes.trim()) lines.push(`Details: ${notes.trim()}`);
     if (applyOffer) lines.push("", "(I saw the 10% first-service offer 🙂)");
-    lines.push("", "— Sent from your website");
+    lines.push("", "Sent from your website");
     return lines.join("\n");
   }
 
@@ -107,7 +107,7 @@ export function QuoteForm() {
               </h2>
               <p className="mt-5 max-w-md text-chalk-dim">
                 Choose what you need and we&apos;ll build a WhatsApp message for you. Hit send
-                and Paul replies with a quote — quick and easy.
+                and Paul replies with a quote, quick and easy.
               </p>
               <ul className="mt-8 flex flex-col gap-3">
                 {valueProps.map((v) => (

@@ -14,19 +14,19 @@ const testimonials = [
     id: 1,
     testimonial:
       "Sorted our DB board and a dead circuit the same day. Arrived on time, tidy work, fair price. Highly recommend.",
-    author: "Riaan B. — Roodepoort",
+    author: "Riaan B., Roodepoort",
   },
   {
     id: 2,
     testimonial:
       "Installed our inverter and battery backup before load-shedding season. The house barely skips a beat now.",
-    author: "Thandi M. — Krugersdorp",
+    author: "Thandi M., Krugersdorp",
   },
   {
     id: 3,
     testimonial:
       "Rewired the office and issued the CoC without any fuss. Professional, compliant and easy to deal with.",
-    author: "Deon V. — Weltevreden Park",
+    author: "Deon V., Weltevreden Park",
   },
 ];
 
@@ -54,7 +54,7 @@ export function Testimonials() {
               <span className="text-bolt">across the community.</span>
             </h2>
             <p className="mt-5 max-w-md text-chalk-dim">
-              Real, honest work — and customers who come back. Here&apos;s what a few of them
+              Real, honest work, and customers who come back. Here&apos;s what a few of them
               had to say.
             </p>
             <p className="mt-6 inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-wider text-chalk-faint">

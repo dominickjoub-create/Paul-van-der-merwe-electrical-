@@ -12,7 +12,7 @@ export function WhyChooseUs() {
               <p className="eyebrow">Why choose us</p>
               <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight text-chalk sm:text-4xl">
                 Work you can{" "}
-                <span className="text-bolt">trust</span> — done right the first time.
+                <span className="text-bolt">trust</span>, done right the first time.
               </h2>
               <p className="mt-5 max-w-md text-chalk-dim">
                 One hands-on, certified electrician who answers the phone, quotes upfront

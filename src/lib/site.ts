@@ -65,7 +65,7 @@ export const services: Service[] = [
     title: "Residential Electrical",
     short: "Homes & estates",
     blurb:
-      "Safe, tidy wiring and repairs for houses, cottages and complexes — from a single plug point to a full rewire.",
+      "Safe, tidy wiring and repairs for houses, cottages and complexes, from a single plug point to a full rewire.",
     points: ["Plugs, lights & DB boards", "Rewires & extensions", "Compliance certificates (CoC)"],
   },
   {
@@ -93,7 +93,7 @@ export const services: Service[] = [
     title: "Fault Finding & Repairs",
     short: "Something's wrong?",
     blurb:
-      "Tripping breakers, dead circuits or that burning smell — we track the fault down and fix it properly.",
+      "Tripping breakers, dead circuits or that burning smell. We track the fault down and fix it properly.",
     points: ["Trip & short-circuit diagnosis", "Emergency breakdowns", "Same-day repairs where possible"],
   },
   {
@@ -101,7 +101,7 @@ export const services: Service[] = [
     title: "LED Lighting Upgrades",
     short: "Brighter, cheaper",
     blurb:
-      "Swap tired, power-hungry fittings for crisp, efficient LED lighting inside and out — and cut your bill.",
+      "Swap tired, power-hungry fittings for crisp, efficient LED lighting inside and out, and cut your bill.",
     points: ["Indoor & outdoor lighting", "Downlights & floodlights", "Sensor & security lighting"],
   },
   {
@@ -129,7 +129,7 @@ export const services: Service[] = [
 export const whyChooseUs: { title: string; body: string }[] = [
   {
     title: "Qualified & Experienced",
-    body: "Certified, compliant work you can rely on — done by a hands-on electrician, not a call centre.",
+    body: "Certified, compliant work you can rely on, done by a hands-on electrician, not a call centre.",
   },
   {
     title: "Reliable & On Time",
