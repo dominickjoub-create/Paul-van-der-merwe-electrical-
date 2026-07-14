@@ -15,6 +15,7 @@ export function QuoteForm() {
   const [name, setName] = useState("");
   const [area, setArea] = useState("");
   const [property, setProperty] = useState<PropertyType>("Home");
+  const [details, setDetails] = useState<Record<string, string>>({});
   const [notes, setNotes] = useState("");
   const [applyOffer, setApplyOffer] = useState(true);
   const [errors, setErrors] = useState<{ services?: string; name?: string; area?: string }>({});
@@ -37,20 +38,32 @@ export function QuoteForm() {
   }, []);
 
   function toggle(id: ServiceId) {
+    const wasOn = picked.has(id);
     setPicked((prev) => {
       const next = new Set(prev);
       next.has(id) ? next.delete(id) : next.add(id);
       return next;
     });
+    // Clear a service's follow-up answer when it's deselected.
+    if (wasOn) {
+      setDetails((d) => {
+        const nd = { ...d };
+        delete nd[id];
+        return nd;
+      });
+    }
   }
 
   function buildMessage() {
-    const chosen = services.filter((s) => picked.has(s.id)).map((s) => s.title);
+    const chosen = services.filter((s) => picked.has(s.id));
     const lines = [
       "Hi Paul 👋",
       "",
       "I'd like a quote for:",
-      ...chosen.map((c) => `• ${c}`),
+      ...chosen.map((s) => {
+        const d = details[s.id]?.trim();
+        return d ? `• ${s.title} — ${d}` : `• ${s.title}`;
+      }),
       "",
       `Name: ${name.trim()}`,
       `Area: ${area.trim()}`,
@@ -83,7 +96,7 @@ export function QuoteForm() {
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-bolt/40 to-transparent"
       />
       <div className="shell">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-14">
           {/* Left: pitch */}
           <div className="lg:pt-4">
             <Reveal>
@@ -140,6 +153,30 @@ export function QuoteForm() {
                   })}
                 </div>
                 {errors.services && <ErrorText>{errors.services}</ErrorText>}
+
+                {/* Follow-up questions for services that need a bit more detail */}
+                {services.some((s) => picked.has(s.id) && s.ask) && (
+                  <div className="mt-4 flex flex-col gap-3 rounded-xl border border-ink-line bg-ink/40 p-4">
+                    {services
+                      .filter((s) => picked.has(s.id) && s.ask)
+                      .map((s) => (
+                        <label key={s.id} className="block">
+                          <span className="mb-1.5 block text-[0.82rem] font-medium text-chalk-dim">
+                            <span className="text-bolt">{s.title}:</span> {s.ask!.label}
+                          </span>
+                          <input
+                            type="text"
+                            value={details[s.id] ?? ""}
+                            onChange={(e) =>
+                              setDetails((d) => ({ ...d, [s.id]: e.target.value }))
+                            }
+                            placeholder={s.ask!.placeholder}
+                            className={inputCls(false)}
+                          />
+                        </label>
+                      ))}
+                  </div>
+                )}
               </fieldset>
 
               <div className="my-7 rule-bolt" />

@@ -51,6 +51,12 @@ export interface Service {
   short: string;
   blurb: string;
   points: string[];
+  /**
+   * Optional follow-up question shown in the quote form when this service is
+   * selected (e.g. how many metres of fencing). Its answer is added to the
+   * WhatsApp message.
+   */
+  ask?: { label: string; placeholder: string };
 }
 
 export const services: Service[] = [
@@ -77,6 +83,10 @@ export const services: Service[] = [
     blurb:
       "Three-phase power, machine wiring and control work built to handle demanding industrial environments.",
     points: ["Three-phase installs", "Motor & machine wiring", "Distribution & control panels"],
+    ask: {
+      label: "What needs power?",
+      placeholder: "e.g. 3-phase machine, workshop, pump",
+    },
   },
   {
     id: "fault-finding",
@@ -101,6 +111,10 @@ export const services: Service[] = [
     blurb:
       "New electric fence installs, energiser repairs and compliance certificates to keep your property secure.",
     points: ["New installs & extensions", "Energiser & fault repairs", "Electric fence CoC"],
+    ask: {
+      label: "Roughly how many metres?",
+      placeholder: "e.g. 60 m",
+    },
   },
   {
     id: "solar",

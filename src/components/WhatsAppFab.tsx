@@ -3,18 +3,24 @@
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 
-/** Floating WhatsApp button — appears after the hero, hides near the form. */
+/**
+ * Floating WhatsApp button — appears after the hero, and hides while the quote
+ * form or contact section is on screen (both already have their own WhatsApp
+ * button, so the FAB would only overlap them).
+ */
 export function WhatsAppFab() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    const inView = (id: string) => {
+      const el = document.getElementById(id);
+      if (!el) return false;
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight * 0.9 && r.bottom > 0;
+    };
     const onScroll = () => {
       const past = window.scrollY > window.innerHeight * 0.7;
-      const form = document.getElementById("quote");
-      const nearForm =
-        form && form.getBoundingClientRect().top < window.innerHeight * 0.9 &&
-        form.getBoundingClientRect().bottom > 0;
-      setShow(past && !nearForm);
+      setShow(past && !inView("quote") && !inView("contact"));
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
